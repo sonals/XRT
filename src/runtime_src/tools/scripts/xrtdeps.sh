@@ -217,7 +217,7 @@ ub_package_list()
 	if [ -z $LH_PKG_EXISTS ]; then
 	    LH_PKG=linux-headers-generic
 	fi
-        UB_LIST+=$LH_PKG
+        UB_LIST+=( $LH_PKG )
     fi
 
     #dmidecode is only applicable for x86_64
