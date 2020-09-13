@@ -212,7 +212,12 @@ ub_package_list()
     )
 
     if [ $docker == 0 ] && [ $sysroot == 0 ]; then
-        UB_LIST+=(linux-headers-$(uname -r))
+	LH_PKG=(linux-headers-$(uname -r))
+	set LH_PKG_EXISTS=`apt-cache search --names-only $LH_PKG`
+	if [ -z $LH_PKG_EXISTS ]; then
+	    LH_PKG=linux-headers-generic
+	fi
+        UB_LIST+=$LH_PKG
     fi
 
     #dmidecode is only applicable for x86_64
