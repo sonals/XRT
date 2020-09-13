@@ -60,10 +60,12 @@ dump_host_environment()
     fi
     echo "Distribution: $FLAVOR $VERSION"
     uname -a
+    ls -lah /boot
     ls -lah /usr/src/
     ls -lah /lib/modules/
     ls -lah /lib/modules/`uname -r`/
     dpkg-query -S linux-image || true
+    lsmod
     echo "---------------------------------------------------------------------------------"
 }
 
