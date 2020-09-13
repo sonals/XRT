@@ -65,6 +65,7 @@ dump_host_environment()
     ls -lah /lib/modules/
     ls -lah /lib/modules/`uname -r`/
     dpkg-query -S linux-image || true
+    apt-cache search --names-only '^linux-headers-*'
     lsmod
     echo "---------------------------------------------------------------------------------"
 }
